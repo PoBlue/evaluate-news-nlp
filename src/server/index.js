@@ -1,12 +1,16 @@
+const dotenv = require('dotenv');
+dotenv.config();
 var path = require('path')
 const express = require('express')
 const mockAPIResponse = require('./mockAPI.js')
 const aylien = require("aylien_textapi");
 
+console.log(`Your API key is ${process.env.API_KEY}`);
+
 // set aylien API credentias
 var textapi = new aylien({
-    application_id: "e1581e66",
-    application_key: "7f9cc17260e0b6f37d9051efb7abff95"
+    application_id: process.env.API_ID,
+    application_key: process.env.API_KEY
 });
 
 const app = express()
